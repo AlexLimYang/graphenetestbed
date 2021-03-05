@@ -1,0 +1,7 @@
+async deleteRating(ctx,freelancerId) {
+  
+ await ctx.stub.deleteState(freelancerId); 
+   
+console.log(’Freelancer Rating deleted from the ledger Succesfully..’);
+    
+    }
