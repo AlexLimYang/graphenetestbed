@@ -1,0 +1,9 @@
+async addRating(ctx,freelancerId,rating1,rating2,rating3) { 
+    let Rating={
+     rate1:rating1, 
+     rate2:rating2,
+     rate3:rating3 
+     }; 
+await  ctx.stub.putState(freelancerId,Buffer.from(JSON.stringify(Rating))); 
+console.log(’Freelancer Rating added To the ledger Succesfully..’); 
+}
