@@ -1,0 +1,9 @@
+async queryRating(ctx,studentId){
+ 
+     let ratingAsBytes = await ctx.stub.getState(freelancerId); 
+     if (!ratingAsBytes || ratingAsBytes.toString().length <= 0) { 
+       throw new Error(’Freelancer with this Id does not exist: '); 
+         } 
+    let rating=JSON.parse(ratingAsBytes.toString()); 
+    return JSON.stringify(rating); 
+   }
