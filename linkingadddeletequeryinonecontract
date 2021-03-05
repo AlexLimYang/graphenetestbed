@@ -1,0 +1,50 @@
+'use strict';
+
+const { Contract} = require('fabric-contract-api');
+
+class testContract extends Contract {
+
+async queryRating(ctx,studentId) {
+
+    let ratingAsBytes = await ctx.stub.getState(FreelancerId); 
+
+    if (!ratingAsBytes || ratingAsBytes.toString().length <= 0) {
+
+      throw new Error('Freelancer with this Id does not exist: ');
+
+       }
+
+      let rating=JSON.parse(ratingAsBytes.toString());
+      return JSON.stringify(rating);
+
+  }
+
+async addRating(ctx,FreelancerId,rating1,rating2,rating3) {
+   
+   let rating={
+
+       rate1:rating1,
+
+       rate2:rating2,
+
+       rate3:rating3
+
+       };
+
+    await ctx.stub.putState(freelancerId,Buffer.from(JSON.stringify(rating))); 
+
+    console.log('Freelancer Rating added To the ledger Succesfully..');
+    
+  }
+
+async deleteMarks(ctx,freelancerId) {
+   
+    await ctx.stub.deleteState(freelancerId); 
+    console.log('Freelancer Rating deleted from the ledger Succesfully..');
+
+    }
+
+   
+}
+
+module.exports=testContract;
