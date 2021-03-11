@@ -37,7 +37,7 @@ async addRating(ctx,FreelancerId,rating1,rating2,rating3) {
     
   }
 
-async deleteMarks(ctx,freelancerId) {
+async deleteRating(ctx,freelancerId) {
    
     await ctx.stub.deleteState(freelancerId); 
     console.log('Freelancer Rating deleted from the ledger Succesfully..');
